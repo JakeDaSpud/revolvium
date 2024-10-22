@@ -1,0 +1,5 @@
+- How did the civilization die out?
+- Where did they go?
+- Hints at their ability to predict the future
+    - murals of the player
+    - piece together their story by finding murals
