@@ -1,0 +1,16 @@
+# List of UI Elements
+- Main Menu:
+    - Start
+    - Settings
+    - Exit
+- Narrative screen
+    - Image
+    - Text
+- Settings:
+    - Music Volume Bar
+    - SFX Volume Bar
+- Pause Menu
+    - Resume
+    - Restart
+    - Exit
+- White outline around selected rotation pieces
