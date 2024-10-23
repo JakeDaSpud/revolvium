@@ -1,6 +1,11 @@
+using GD;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+/*
+ *  LEVEL CONTROLLER - STARTED BY AND WRITTEN BY RUBY
+ */
 
 public class LevelController : MonoBehaviour
 {
@@ -9,7 +14,7 @@ public class LevelController : MonoBehaviour
 
     private float delay = 0f; // delay is used between turns so that the chunk locator can activate and unactivate 
     [SerializeField]
-    [Description("the time between when inputs can be pressed")]
+    [Tooltip("the time between when inputs can be pressed")]
     private float defaultDelay = 1f; // default dealy used in between presses
 
 
@@ -17,6 +22,21 @@ public class LevelController : MonoBehaviour
     private List<levelRotationDirection> rotationDirections = new List<levelRotationDirection>();
 
     public levelRotationDirection currentRotationDirection;
+
+
+    [SerializeField]
+    private bool canRotate;
+
+
+    // these 2 functions could be made into one, using canRotate = !canRotate and making the event a toggle rather than an enable/disable
+    public void enableRotation()
+    {
+        canRotate = true;
+    }
+    public void disableRotation()
+    {
+        canRotate = false;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +49,11 @@ public class LevelController : MonoBehaviour
     {
         if (delay > 0)
         {
-            Debug.Log(delay);
             delay -= Time.deltaTime;
             if (delay <= 0f )
                 levelChunkFinder.gameObject.SetActive(false);
         }
-        else{ // turn comments do not follow cube notation properly, eg L TURN is actually L', yet R TURN is R and not R' (if you don't get what any of that meant it is fine)
+        else if(canRotate){ // turn comments do not follow cube notation properly, eg L TURN is actually L', yet R TURN is R and not R' (if you don't get what any of that meant it is fine)
             if (Input.GetKeyDown(KeyCode.Alpha1)) //L TURN
             {
                 startRotate(new Vector3(-1, 0, 0), new Vector3(0, 0, 0), 0);
