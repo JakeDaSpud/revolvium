@@ -27,6 +27,10 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     private bool canRotate;
 
+    // will need to be improved
+    [SerializeField, Tooltip("is true if the dimensions of the cube are even.")]
+    private bool evenDimensions = false;
+
 
     // these 2 functions could be made into one, using canRotate = !canRotate and making the event a toggle rather than an enable/disable
     public void enableRotation()
@@ -58,7 +62,7 @@ public class LevelController : MonoBehaviour
             {
                 startRotate(new Vector3(-1, 0, 0), new Vector3(0, 0, 0), 0);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2)) //M TURN
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && !evenDimensions) //M TURN
             {
                 startRotate(new Vector3(0, 0, 0), new Vector3(0, 0, 0), 0);
             }
@@ -71,7 +75,7 @@ public class LevelController : MonoBehaviour
             {
                 startRotate(new Vector3(0, 0, 1), new Vector3(0, 90, 0), 1);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha5)) //S TURN
+            else if (Input.GetKeyDown(KeyCode.Alpha5) && !evenDimensions) //S TURN
             {
                 startRotate(new Vector3(0, 0, 0), new Vector3(0, 90, 0), 1);
             }
@@ -84,7 +88,7 @@ public class LevelController : MonoBehaviour
             {
                 startRotate(new Vector3(0, 1, 0), new Vector3(0, 0, 90), 2);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha8)) //E TURN
+            else if (Input.GetKeyDown(KeyCode.Alpha8) && !evenDimensions) //E TURN
             {
                 startRotate(new Vector3(0, 0, 0), new Vector3(0, 0, 90), 2);
             }

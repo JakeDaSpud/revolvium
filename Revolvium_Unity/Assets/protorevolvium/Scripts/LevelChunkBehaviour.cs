@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  LEVEL CHUNK CONTROLLER - STARTED BY AND WRITTEN BY RUBY
+ */
 public class LevelChunkBehaviour : MonoBehaviour
 {
     private Vector3 cubeCenter = new Vector3(0, 0, 0);
